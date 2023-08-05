@@ -1,6 +1,10 @@
 # Tauri mobile alpha + Apple ecosystem
 
-The template currently supports macOS only.
+This template currently supports macOS only.
+
+Here is an Android version based on this template https://github.com/casey-SK/tauri-mobile-android
+
+I've made a detailed step by step guide on `dev.to` covering particular set up steps https://dev.to/adimac93/tauri-mobile-for-ios-4dp6
 
 ## Warning
 
