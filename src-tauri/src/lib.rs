@@ -12,6 +12,14 @@ fn greet(name: &str) -> String {
     format!("Hello, {}!", name)
 }
 
+#[tauri::command]
+fn get_config() -> String {
+    let contents = std::fs::read_to_string("/data/data/com.emstone.moview/files/nvr-viewer.conf")
+        .expect("Should have been able to read the file");
+
+    contents
+}
+
 #[derive(Default)]
 pub struct AppBuilder {
     setup: Option<SetupHook>,
@@ -40,7 +48,7 @@ impl AppBuilder {
                 }
                 Ok(())
             })
-            .invoke_handler(tauri::generate_handler![greet])
+            .invoke_handler(tauri::generate_handler![greet, get_config])
             .run(tauri::generate_context!())
             .expect("error while running tauri application");
     }
